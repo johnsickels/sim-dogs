@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Box, Container, TextField, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import DogTable from "./components/DogTable";
@@ -14,7 +13,7 @@ function App() {
       setAllDogs(dogsArray)
       setFilteredDogs(dogsArray)
     });
-  });
+  }, []);
 
   return (
     <div className="App">
@@ -28,8 +27,6 @@ function App() {
           </Box>
         </Box>
         <DogTable dogs={filteredDogs.slice(0, 12)} />
-        
-
       </Container>
     </div>
   );
