@@ -1,10 +1,12 @@
 import axios from "axios";
-import { AxiosDogs } from "../interfaces";
-
+import { DogsResponse, ImagesResponse } from "../interfaces";
 
 const dogAPI = {
   getDogs: function () {
-    return axios.get<AxiosDogs>("https://dog.ceo/api/breeds/list/all");
+    return axios.get<DogsResponse>("https://dog.ceo/api/breeds/list/all");
+  },
+  getImages: function (query: string) {
+    return axios.get<ImagesResponse>(`https://dog.ceo/api/breed/${query}/images/random/8`);
   },
 };
 

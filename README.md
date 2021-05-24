@@ -22,3 +22,6 @@ betically.
   - If I hack it, I get the gratitude that I can do it quickly
   - If I run through fp it might make me appreciate and understand it from the beginning instead of used as a translation
 - Not finding anything familiar, some are recommending avoiding hooks, getting scared
+- Deciding on skeletons for my loading indicator, Step 1 done
+- Found GridList much more useful than balancing Flexbox and Grid
+- Got images on click, need to consider lazy loading, so0o many images come back from the response

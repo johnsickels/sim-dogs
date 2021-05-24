@@ -1,5 +1,9 @@
-export interface AxiosDogs {
+export interface DogsResponse {
     message: Dog[]
+}
+
+export interface ImagesResponse {
+  message: string[]
 }
 
 export interface Dog {
