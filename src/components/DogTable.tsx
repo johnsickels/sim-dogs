@@ -2,22 +2,24 @@ import { MouseEvent, useState } from "react";
 import { Button, Grid } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import DogImages from "./DogImages";
-import API from "../utils/API"
+import API from "../utils/API";
+import { Status } from "../interfaces";
 
-interface IProps {
+interface Props {
   dogs: string[];
 }
 
-function DogTable({ dogs }: IProps) {
+function DogTable({ dogs }: Props) {
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const breed = event.currentTarget.innerText.toLowerCase()
-    API.getImages(breed).then(results => {
-      const images = results.data.message
-      console.log(images);
-      setImages(images)
-    })
+    setStatus("loading");
+    const breed = event.currentTarget.innerText.toLowerCase();
+    API.getImages(breed).then((results) => {
+      const images = results.data.message;
+      setImages(images);
+    });
   };
 
+  const [status, setStatus] = useState<Status>("ready");
   const [images, setImages] = useState<string[]>([]);
 
   return (
@@ -56,7 +58,7 @@ function DogTable({ dogs }: IProps) {
             })}
         </Grid>
       )}
-      <DogImages images={images}></DogImages>
+      <DogImages images={images} status={status} setStatus={setStatus}></DogImages>
     </>
   );
 }

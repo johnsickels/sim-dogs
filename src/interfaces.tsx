@@ -9,3 +9,5 @@ export interface ImagesResponse {
 export interface Dog {
   [breed: string]: string[];
 }
+
+export type Status = "ready" | "loading" | "loaded";
