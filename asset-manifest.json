@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sim-dogs/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/sim-dogs/static/js/main.6bb11917.chunk.js",
-    "main.js.map": "/sim-dogs/static/js/main.6bb11917.chunk.js.map",
+    "main.js": "/sim-dogs/static/js/main.fbc0e679.chunk.js",
+    "main.js.map": "/sim-dogs/static/js/main.fbc0e679.chunk.js.map",
     "runtime-main.js": "/sim-dogs/static/js/runtime-main.429c0f6c.js",
     "runtime-main.js.map": "/sim-dogs/static/js/runtime-main.429c0f6c.js.map",
     "static/js/2.18b20057.chunk.js": "/sim-dogs/static/js/2.18b20057.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.429c0f6c.js",
     "static/js/2.18b20057.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.6bb11917.chunk.js"
+    "static/js/main.fbc0e679.chunk.js"
   ]
 }
