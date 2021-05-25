@@ -10,10 +10,18 @@ function App() {
   useEffect(() => {
     API.getDogs().then((results) => {
       const dogsArray = Object.keys(results.data.message);
-      setAllDogs(dogsArray)
-      setFilteredDogs(dogsArray)
+      setAllDogs(dogsArray);
+      setFilteredDogs(dogsArray);
     });
   }, []);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const filter = event.target.value.toLowerCase();
+    const filteredList = allDogs.filter((dog) => {
+      return dog.indexOf(filter) !== -1;
+    });
+    setFilteredDogs(filteredList);
+  };
 
   return (
     <div className="App">
@@ -23,7 +31,11 @@ function App() {
             <Typography variant="h1">Dogs!</Typography>
           </Box>
           <Box p={1} m={1}>
-            <TextField id="search-breeds" label="Search" />
+            <TextField
+              id="search-breeds"
+              label="Search"
+              onChange={handleSearchChange}
+            />
           </Box>
         </Box>
         <DogTable dogs={filteredDogs.slice(0, 12)} />
