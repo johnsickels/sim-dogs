@@ -25,3 +25,6 @@ betically.
 - Deciding on skeletons for my loading indicator, Step 1 done
 - Found GridList much more useful than balancing Flexbox and Grid
 - Got images on click, need to consider lazy loading, so0o many images come back from the response
+- Although the endpoint is different from the spec, `images/random/8` has better performance and better UX with fresh images on clicks of the same breed
+  - It also opens the opportunity to lazy load
+- Preloading images before setting state to "loaded" allows a cleaner image load UX
