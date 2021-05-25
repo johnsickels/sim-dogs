@@ -1,13 +1,17 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface DogsResponse {
-    message: Dog[]
+  message: Dog[];
 }
 
 export interface ImagesResponse {
-  message: string[]
+  message: string[];
 }
 
 export interface Dog {
   [breed: string]: string[];
 }
 
-export type Status = "ready" | "loading" | "loaded";
+export type Dispatcher<S> = Dispatch<SetStateAction<S>>;
+
+export type Status = "ready" | "loading" | "loaded" | "none";

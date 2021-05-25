@@ -1,25 +1,36 @@
 import { Box, Container, TextField, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import DogTable from "./components/DogTable";
+import { Status } from "./interfaces";
 import API from "./utils/API";
 
 function App() {
   const [allDogs, setAllDogs] = useState<string[]>([]);
   const [filteredDogs, setFilteredDogs] = useState<string[]>([]);
+  const [buttonsStatus, setButtonsStatus] = useState<Status>("ready");
+  const [imagesStatus, setImagesStatus] = useState<Status>("ready");
 
   useEffect(() => {
+    setButtonsStatus("loading");
     API.getDogs().then((results) => {
       const dogsArray = Object.keys(results.data.message);
       setAllDogs(dogsArray);
       setFilteredDogs(dogsArray);
+      setButtonsStatus("loaded");
     });
   }, []);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImagesStatus("ready")
     const filter = event.target.value.toLowerCase();
     const filteredList = allDogs.filter((dog) => {
       return dog.indexOf(filter) !== -1;
     });
+    if (!filteredList.length) {
+      setButtonsStatus("none");
+    } else {
+      setButtonsStatus("loaded");
+    }
     setFilteredDogs(filteredList);
   };
 
@@ -38,7 +49,12 @@ function App() {
             />
           </Box>
         </Box>
-        <DogTable dogs={filteredDogs.slice(0, 12)} />
+        <DogTable
+          dogs={filteredDogs.slice(0, 12)}
+          buttonsStatus={buttonsStatus}
+          imagesStatus={imagesStatus}
+          setImagesStatus={setImagesStatus}
+        />
       </Container>
     </div>
   );

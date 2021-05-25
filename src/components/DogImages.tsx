@@ -1,15 +1,15 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { useEffect } from "react";
 import { Box, GridList, GridListTile } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import { Status } from "../interfaces";
+import { Dispatcher, Status } from "../interfaces";
 
-interface Props {
+interface IProps {
   images: string[];
-  status: string;
-  setStatus: Dispatch<SetStateAction<Status>>;
+  imagesStatus: string;
+  setImagesStatus: Dispatcher<Status>;
 }
 
-function DogImages({ images, status, setStatus }: Props) {
+function DogImages({ images, imagesStatus, setImagesStatus }: IProps) {
   useEffect(() => {
     const loadImage = (imageUrl: string) => {
       return new Promise((resolve, reject) => {
@@ -21,11 +21,11 @@ function DogImages({ images, status, setStatus }: Props) {
     };
 
     Promise.all(images.map((image) => loadImage(image)))
-      .then(() => setStatus("loaded"))
+      .then(() => setImagesStatus("loaded"))
       .catch((err) => console.log("Failed to load images", err));
-  }, [images, setStatus]);
+  }, [images, setImagesStatus]);
 
-  switch (status) {
+  switch (imagesStatus) {
     case "loading":
       return (
         <Box m={1} p={1}>
