@@ -8,16 +8,20 @@ interface IProps {
   dogs: string[];
   buttonsStatus: Status;
   imagesStatus: string,
+  activeDog: string,
+  setActiveDog: Dispatcher<string>,
   setImagesStatus: Dispatcher<Status>,
 }
 
 function DogTable({
   dogs,
+  activeDog,
   buttonsStatus,
   imagesStatus,
+  setActiveDog,
   setImagesStatus,
 }: IProps) {
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
     setImagesStatus("loading");
     const breed = event.currentTarget.innerText.toLowerCase();
     API.getImages(breed).then((results) => {
@@ -32,8 +36,10 @@ function DogTable({
     <>
       <DogButtons
         dogs={dogs}
+        activeDog={activeDog}
         buttonsStatus={buttonsStatus}
         handleClick={handleClick}
+        setActiveDog={setActiveDog}
       ></DogButtons>
       <DogImages
         images={images}

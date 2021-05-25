@@ -10,6 +10,7 @@ function DogDashboard() {
   const [filteredDogs, setFilteredDogs] = useState<string[]>([]);
   const [buttonsStatus, setButtonsStatus] = useState<Status>("ready");
   const [imagesStatus, setImagesStatus] = useState<Status>("ready");
+  const [activeDog, setActiveDog] = useState<string>("");
 
   useEffect(() => {
     setButtonsStatus("loading");
@@ -28,11 +29,14 @@ function DogDashboard() {
         setButtonsStatus={setButtonsStatus}
         setImagesStatus={setImagesStatus}
         setFilteredDogs={setFilteredDogs}
+        setActiveDog={setActiveDog}
       ></DogHeader>
       <DogTable
         dogs={filteredDogs.slice(0, 12)}
+        activeDog={activeDog}
         buttonsStatus={buttonsStatus}
         imagesStatus={imagesStatus}
+        setActiveDog={setActiveDog}
         setImagesStatus={setImagesStatus}
       />
     </Container>

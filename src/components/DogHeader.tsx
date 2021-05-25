@@ -6,10 +6,12 @@ interface IProps {
   setButtonsStatus: Dispatcher<Status>;
   setImagesStatus: Dispatcher<Status>;
   setFilteredDogs: Dispatcher<string[]>;
+  setActiveDog: Dispatcher<string>
 }
-function DogHeader({ allDogs, setButtonsStatus, setImagesStatus, setFilteredDogs }: IProps) {
+function DogHeader({ allDogs, setButtonsStatus, setImagesStatus, setFilteredDogs, setActiveDog }: IProps) {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setImagesStatus("ready");
+    setActiveDog("")
     const filter = event.target.value.toLowerCase();
     const filteredList = allDogs.filter((dog) => {
       return dog.indexOf(filter) !== -1;
