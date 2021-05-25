@@ -28,3 +28,13 @@ betically.
 - Although the endpoint is different from the spec, `images/random/8` has better performance and better UX with fresh images on clicks of the same breed
   - It also opens the opportunity to lazy load
 - Preloading images before setting state to "loaded" allows a cleaner image load UX
+- Filter was easy, does `allDogs` even need state or should it be a constant variable?
+- Need to clear images when a new filter is entered
+  - Pushes state to a higher order component
+- Active button
+  - Tried with material-ui's ToggleButton component, but DOES NOT like to work with Grid
+  - Either lose grid layout or lose function
+  - Writing another state for activeButton
+    - Unfortunately, this has to be higher order as well so we can clear active button when new search is entered
+    - At this point, when is state _complex_ and should use Redux?
+    
