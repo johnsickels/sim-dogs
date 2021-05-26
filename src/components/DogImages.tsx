@@ -9,8 +9,17 @@ interface IProps {
   setImagesStatus: Dispatcher<Status>;
 }
 
+/**
+ * Dog Images
+ *
+ * Loading, loaded, or no images
+ * @param props
+ * @returns
+ */
 function DogImages({ images, imagesStatus, setImagesStatus }: IProps) {
+  // on load or status change
   useEffect(() => {
+    // preload image
     const loadImage = (imageUrl: string) => {
       return new Promise((resolve, reject) => {
         const loadImg = new Image();
@@ -20,15 +29,19 @@ function DogImages({ images, imagesStatus, setImagesStatus }: IProps) {
       });
     };
 
+    // wait for all images to load
     Promise.all(images.map((image) => loadImage(image)))
       .then(() => {
         if (images.length) {
+          // if there are images
           setImagesStatus("loaded");
         } else {
-          setImagesStatus("none")
+          // else show nothing
+          setImagesStatus("none");
         }
       })
       .catch((err) => console.log("Failed to load images", err));
+    // dependendcies
   }, [images, setImagesStatus]);
 
   switch (imagesStatus) {

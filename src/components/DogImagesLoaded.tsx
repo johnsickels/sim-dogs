@@ -4,6 +4,13 @@ interface IProps {
   images: string[];
 }
 
+/**
+ * Loaded Dog Images
+ * 
+ * All dog images, loaded
+ * @param props
+ * @returns 
+ */
 function DogImagesLoaded({ images }: IProps) {
   return (
     <Box p={2} style={{ backgroundColor: "#dedede" }}>

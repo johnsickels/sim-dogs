@@ -1,6 +1,12 @@
 import { Box, GridList, GridListTile } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 
+/**
+ * Skeleton Images
+ * 
+ * Placeholder for loading images
+ * @returns 
+ */
 function DogImagesSkeleton() {
   return (
     <Box m={1} p={1}>

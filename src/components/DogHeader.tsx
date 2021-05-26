@@ -8,6 +8,14 @@ interface IProps {
   setFilteredDogs: Dispatcher<string[]>;
   setActiveDog: Dispatcher<string>;
 }
+
+/**
+ * Dog Header
+ * 
+ * Header and search input
+ * @param props
+ * @returns 
+ */
 function DogHeader({
   allDogs,
   setButtonsStatus,
@@ -15,18 +23,31 @@ function DogHeader({
   setFilteredDogs,
   setActiveDog,
 }: IProps) {
+  // when the user types inthe search input field
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // clear the image component
     setImagesStatus("ready");
+
+    // clear the active dog
     setActiveDog("");
+
+    // capture user input
     const filter = event.target.value.toLowerCase();
+
+    // an array of dogs that match the search
     const filteredList = allDogs.filter((dog) => {
       return dog.indexOf(filter) !== -1;
     });
-    if (!filteredList.length) {
-      setButtonsStatus("none");
-    } else {
+
+    // if match
+    if (filteredList.length) {
       setButtonsStatus("loaded");
+      // if no match
+    } else {
+      setButtonsStatus("none");
     }
+
+    // set the array, even if empty
     setFilteredDogs(filteredList);
   };
 

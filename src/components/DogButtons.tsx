@@ -12,6 +12,13 @@ interface IProps {
   setActiveDog: Dispatcher<string>;
 }
 
+/**
+ * Dog Buttons
+ *
+ * All buttons - empty, loading, or loaded
+ * @param props
+ * @returns
+ */
 function DogButtons({
   dogs,
   activeDog,
@@ -19,7 +26,9 @@ function DogButtons({
   setActiveDog,
   handleClick,
 }: IProps) {
+  // Conditional render
   switch (buttonsStatus) {
+    // API has responded and filter has dogs
     case "loaded":
       return (
         <DogButtonsLoaded
@@ -29,10 +38,12 @@ function DogButtons({
           setActiveDog={setActiveDog}
         ></DogButtonsLoaded>
       );
+    // API has responded, but filter matches no dogs
     case "none":
       return (
         <Alert severity="warning">No dogs found! Try another search...</Alert>
       );
+    // API is pending, this has to be last to avoid a flicker on initial load
     default:
       return <DogButtonsSkeleton></DogButtonsSkeleton>;
   }

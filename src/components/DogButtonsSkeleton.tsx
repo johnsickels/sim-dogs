@@ -1,6 +1,12 @@
 import { GridList, GridListTile } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 
+/**
+ * Skeleton buttons
+ * 
+ * Placeholder for loading buttons
+ * @returns 
+ */
 function DogButtonsSkeleton() {
   return (
     <GridList cellHeight={40} cols={4}>

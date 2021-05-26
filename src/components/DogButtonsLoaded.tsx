@@ -10,6 +10,13 @@ interface IProps {
   handleClick: (event: MouseEvent<HTMLElement>) => void;
 }
 
+/**
+ * Loaded Dog Buttons
+ * 
+ * All dog buttons, loaded and ready for clicks
+ * @param props
+ * @returns 
+ */
 function DogButtonsLoaded({
   dogs,
   activeDog,
