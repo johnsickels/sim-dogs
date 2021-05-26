@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sim-dogs/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/sim-dogs/static/js/main.ffd704ec.chunk.js",
-    "main.js.map": "/sim-dogs/static/js/main.ffd704ec.chunk.js.map",
+    "main.js": "/sim-dogs/static/js/main.83a91128.chunk.js",
+    "main.js.map": "/sim-dogs/static/js/main.83a91128.chunk.js.map",
     "runtime-main.js": "/sim-dogs/static/js/runtime-main.4b6ffcd3.js",
     "runtime-main.js.map": "/sim-dogs/static/js/runtime-main.4b6ffcd3.js.map",
-    "static/js/2.0613f88a.chunk.js": "/sim-dogs/static/js/2.0613f88a.chunk.js",
-    "static/js/2.0613f88a.chunk.js.map": "/sim-dogs/static/js/2.0613f88a.chunk.js.map",
+    "static/js/2.637506a6.chunk.js": "/sim-dogs/static/js/2.637506a6.chunk.js",
+    "static/js/2.637506a6.chunk.js.map": "/sim-dogs/static/js/2.637506a6.chunk.js.map",
     "static/js/3.aee7dba0.chunk.js": "/sim-dogs/static/js/3.aee7dba0.chunk.js",
     "static/js/3.aee7dba0.chunk.js.map": "/sim-dogs/static/js/3.aee7dba0.chunk.js.map",
     "index.html": "/sim-dogs/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/sim-dogs/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.0613f88a.chunk.js.LICENSE.txt": "/sim-dogs/static/js/2.0613f88a.chunk.js.LICENSE.txt"
+    "static/js/2.637506a6.chunk.js.LICENSE.txt": "/sim-dogs/static/js/2.637506a6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4b6ffcd3.js",
-    "static/js/2.0613f88a.chunk.js",
+    "static/js/2.637506a6.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.ffd704ec.chunk.js"
+    "static/js/main.83a91128.chunk.js"
   ]
 }
