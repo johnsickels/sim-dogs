@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface DogsResponse {
-  message: Dog[];
+  message: DogJSONBody[];
 }
 
 export interface ImagesResponse {
   message: string[];
 }
 
-export interface Dog {
+interface DogJSONBody{
   [breed: string]: string[];
 }
 

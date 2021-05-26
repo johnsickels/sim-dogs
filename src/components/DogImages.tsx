@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Box, GridList, GridListTile } from "@material-ui/core";
-import { Skeleton } from "@material-ui/lab";
+import DogImagesSkeleton from "./DogImagesSkeleton";
+import DogImagesLoaded from "./DogImagesLoaded";
 import { Dispatcher, Status } from "../interfaces";
 
 interface IProps {
@@ -21,45 +21,21 @@ function DogImages({ images, imagesStatus, setImagesStatus }: IProps) {
     };
 
     Promise.all(images.map((image) => loadImage(image)))
-      .then(() => setImagesStatus("loaded"))
+      .then(() => {
+        if (images.length) {
+          setImagesStatus("loaded");
+        } else {
+          setImagesStatus("none")
+        }
+      })
       .catch((err) => console.log("Failed to load images", err));
   }, [images, setImagesStatus]);
 
   switch (imagesStatus) {
     case "loading":
-      return (
-        <Box m={1} p={1}>
-          <GridList cellHeight={160} cols={4}>
-            {Array(8)
-              .fill(null)
-              .map((_, index) => {
-                return (
-                  <GridListTile key={index}>
-                    <Skeleton
-                      animation="wave"
-                      variant="rect"
-                      height={160}
-                    ></Skeleton>
-                  </GridListTile>
-                );
-              })}
-          </GridList>
-        </Box>
-      );
+      return <DogImagesSkeleton></DogImagesSkeleton>;
     case "loaded":
-      return (
-        <Box m={1} p={1}>
-          <GridList cellHeight={160} cols={4}>
-            {images.map((src, index) => {
-              return (
-                <GridListTile key={index}>
-                  <img src={src} alt={`dog-${index}`} />
-                </GridListTile>
-              );
-            })}
-          </GridList>
-        </Box>
-      );
+      return <DogImagesLoaded images={images}></DogImagesLoaded>;
     default:
       return null;
   }

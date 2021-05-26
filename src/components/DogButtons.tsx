@@ -1,8 +1,8 @@
-import { Grid } from "@material-ui/core";
-import { Alert, Skeleton } from "@material-ui/lab";
 import { MouseEvent } from "react";
-import { Dispatcher, Status } from "../interfaces";
+import { Alert } from "@material-ui/lab";
 import DogButtonsLoaded from "./DogButtonsLoaded";
+import DogButtonsSkeleton from "./DogButtonsSkeleton";
+import { Dispatcher, Status } from "../interfaces";
 
 interface IProps {
   dogs: string[];
@@ -31,27 +31,10 @@ function DogButtons({
       );
     case "none":
       return (
-        <Alert severity="warning">No dogs found! Try another search</Alert>
+        <Alert severity="warning">No dogs found! Try another search...</Alert>
       );
     default:
-      return (
-        <Grid container spacing={3}>
-          {Array(12)
-            .fill(null)
-            .map((_, index) => {
-              return (
-                <Grid item key={index} xs={3}>
-                  <Skeleton
-                    animation="wave"
-                    variant="text"
-                    width="100%"
-                    height={40}
-                  ></Skeleton>
-                </Grid>
-              );
-            })}
-        </Grid>
-      );
+      return <DogButtonsSkeleton></DogButtonsSkeleton>;
   }
 }
 
