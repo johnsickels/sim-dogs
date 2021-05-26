@@ -14,6 +14,12 @@ betically.
 - When a result is selected, mark the selection visually as being active.
 - While the images of the selected breed are loading, display a message that the images are loading.
 
+## Technology
+
+- React
+- TypeScript
+- MaterialUI
+
 ## Notes
 
 - Deciding on position, going to use Material-UI because that's what the client wants
