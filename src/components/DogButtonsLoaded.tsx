@@ -1,6 +1,7 @@
 import { MouseEvent } from "react";
-import { Button, GridList, GridListTile } from "@material-ui/core";
+import { GridList, GridListTile } from "@material-ui/core";
 import { Dispatcher } from "../interfaces";
+import DogButtonLoaded from "./DogButtonLoaded";
 
 interface IProps {
   dogs: string[];
@@ -15,26 +16,18 @@ function DogButtonsLoaded({
   setActiveDog,
   handleClick,
 }: IProps) {
-  const handleActiveDog = (event: MouseEvent<HTMLElement>) => {
-    const newActiveDog = event.currentTarget.innerText.toLowerCase();
-    handleClick(event);
-    setActiveDog(newActiveDog);
-  };
 
   return (
     <GridList cellHeight={50} cols={4}>
       {dogs.map((dog, index) => {
         return (
           <GridListTile key={index}>
-            <Button
-              fullWidth
-              variant="contained"
-              aria-label={dog}
-              onClick={handleActiveDog}
-              style={dog === activeDog ? { backgroundColor: "violet" } : {}}
-            >
-              {dog}
-            </Button>
+            <DogButtonLoaded
+              dog={dog}
+              activeDog={activeDog}
+              setActiveDog={setActiveDog}
+              handleClick={handleClick}
+            ></DogButtonLoaded>
           </GridListTile>
         );
       })}

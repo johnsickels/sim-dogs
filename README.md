@@ -37,4 +37,5 @@ betically.
   - Writing another state for activeButton
     - Unfortunately, this has to be higher order as well so we can clear active button when new search is entered
     - At this point, when is state _complex_ and should use Redux?
+- Stlye button to match gradient in spec, ternary styles are ugly, moving to it's own component
     

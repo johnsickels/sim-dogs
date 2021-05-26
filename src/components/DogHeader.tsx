@@ -6,12 +6,18 @@ interface IProps {
   setButtonsStatus: Dispatcher<Status>;
   setImagesStatus: Dispatcher<Status>;
   setFilteredDogs: Dispatcher<string[]>;
-  setActiveDog: Dispatcher<string>
+  setActiveDog: Dispatcher<string>;
 }
-function DogHeader({ allDogs, setButtonsStatus, setImagesStatus, setFilteredDogs, setActiveDog }: IProps) {
+function DogHeader({
+  allDogs,
+  setButtonsStatus,
+  setImagesStatus,
+  setFilteredDogs,
+  setActiveDog,
+}: IProps) {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setImagesStatus("ready");
-    setActiveDog("")
+    setActiveDog("");
     const filter = event.target.value.toLowerCase();
     const filteredList = allDogs.filter((dog) => {
       return dog.indexOf(filter) !== -1;
@@ -27,7 +33,9 @@ function DogHeader({ allDogs, setButtonsStatus, setImagesStatus, setFilteredDogs
   return (
     <Box display="flex" justifyContent="space-between" p={1} m={1}>
       <Box p={1}>
-        <Typography variant="h2">Dogs!</Typography>
+        <Typography variant="h3" style={{ color: "#5f67fe" }}>
+          Dogs!
+        </Typography>
       </Box>
       <Box p={1} m={1}>
         <TextField
