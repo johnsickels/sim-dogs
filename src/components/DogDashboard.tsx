@@ -3,44 +3,43 @@ import { Container } from "@material-ui/core";
 import DogTable from "./DogTable";
 import DogHeader from "./DogHeader";
 import API from "../utils/API";
-import { Status } from "../interfaces";
+import { useQuery } from "../hooks/useQuery";
+import { DogsResponse, Status } from "../interfaces";
 
 /**
  * Dog Dashboard
- * 
+ *
  * Main component
- * @returns 
+ * @returns
  */
 function DogDashboard() {
   // state
   const [allDogs, setAllDogs] = useState<string[]>([]);
   const [filteredDogs, setFilteredDogs] = useState<string[]>([]);
-  const [buttonsStatus, setButtonsStatus] = useState<Status>("ready");
   const [imagesStatus, setImagesStatus] = useState<Status>("ready");
   const [activeDog, setActiveDog] = useState<string>("");
 
-  // when component mounts
+  const {
+    error,
+    status: buttonsStatus,
+    data,
+    setStatus: setButtonsStatus,
+  } = useQuery<DogsResponse>({
+    apiCall: API.getDogs,
+    initialStatus: "loading",
+  });
+
   useEffect(() => {
-    // show skeleton buttons
-    setButtonsStatus("loading");
-
-    // get all dog breed names
-    API.getDogs().then((results) => {
-      // create an array of main breed names, not worried about sub breeds
-      const dogsArray = Object.keys(results.data.message);
-
-      // the source of truth
+    if (data?.message) {
+      const dogsArray = Object.keys(data.message);
       setAllDogs(dogsArray);
-
-      // the filtered dogs to display
       setFilteredDogs(dogsArray);
+    }
+  }, [data]);
 
-      // remove skeleton and show buttons
-      setButtonsStatus("loaded");
-    });
-
-    // no dependency
-  }, []);
+  if (error){
+    // set status to complain
+  }
 
   return (
     <Container>
