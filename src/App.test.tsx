@@ -1,9 +1,23 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders page title", async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  // ready
+  const h2Element = screen.getByText(/Dogs!/i);
+  expect(h2Element).toBeInTheDocument();
+  
+  // loading
+  const skeletonButtonElements = document.querySelector(".MuiSkeleton-root");
+  expect(skeletonButtonElements).toBeInTheDocument();
+  await waitForElementToBeRemoved(document.querySelector(".MuiSkeleton-root"));
+
+  //loaded
+  const firstButtonElement = screen.getByText(/affenpinscher/gi);
+  expect(firstButtonElement).toBeInTheDocument();
 });
