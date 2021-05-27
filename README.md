@@ -2,7 +2,7 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-## Overview
+## Challenge
 
 Create a single-page application that allows a user to:
 - Search for a specific breed of dog.
@@ -14,11 +14,34 @@ betically.
 - When a result is selected, mark the selection visually as being active.
 - While the images of the selected breed are loading, display a message that the images are loading.
 
+## Installation
+
+```bash
+$ npm install
+```
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# production
+$ npm run deploy
+```
+
 ## Technology
 
-- React
+- React Hooks
+  - useState
+  - useEffect
+  - useQuery
 - TypeScript
 - MaterialUI
+
+## Feedback / Contributing
+
+- Author - [John Sickels](https://github.com/johnsickels)
 
 ## Notes
 
@@ -44,4 +67,7 @@ betically.
     - Unfortunately, this has to be higher order as well so we can clear active button when new search is entered
     - At this point, when is state _complex_ and should use Redux?
 - Stlye button to match gradient in spec, ternary styles are ugly, moving to it's own component
+- Refactors, comments, organizing
+- Learning about useQuery, refactor my useEffect in main dash for button loading/error/data
+  - Should not ( cannot? ) use it in my button onClick api call for images
     
