@@ -1,6 +1,8 @@
 # SimDogs
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Node.js CI](https://github.com/johnsickels/sim-dogs/actions/workflows/node.js.yml/badge.svg)](https://github.com/johnsickels/sim-dogs/actions/workflows/node.js.yml)
+[![codecov](https://codecov.io/gh/johnsickels/sim-dogs/branch/main/graph/badge.svg)](https://codecov.io/gh/johnsickels/sim-dogs)
 
 ## Challenge
 
