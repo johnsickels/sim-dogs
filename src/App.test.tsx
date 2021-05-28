@@ -1,4 +1,5 @@
 import {
+  fireEvent,
   render,
   screen,
   waitForElementToBeRemoved,
@@ -23,17 +24,32 @@ test("renders skeleton, then buttons", async () => {
   expect(firstButtonElement).toBeInTheDocument();
 });
 
-test("renders images when clicked", async () => {
+test("filters buttons on input change", async () => {
   render(<App />);
 
   await waitForElementToBeRemoved(document.querySelector(".MuiSkeleton-root"));
 
-  const allDogButtons = screen.getAllByRole('button')
-  expect(allDogButtons.length).toBe(12)
+  const allDogButtons = screen.getAllByRole("button");
+  expect(allDogButtons.length).toBe(12);
 
-  userEvent.type(screen.getByRole('textbox'), 'corgi')
+  userEvent.type(screen.getByRole("textbox"), "corgi");
 
-  const oneDogButton = screen.getAllByRole('button')
-  expect(oneDogButton.length).toBe(1)
-  
+  const oneDogButton = screen.getAllByRole("button");
+  expect(oneDogButton.length).toBe(1);
+});
+
+test("shows images when clicked", async () => {
+  render(<App />);
+
+  await waitForElementToBeRemoved(document.querySelector(".MuiSkeleton-root"));
+
+  const allDogButtons = screen.getAllByRole("button");
+  const firstDogButton = allDogButtons[0];
+
+  fireEvent.click(firstDogButton);
+
+  setTimeout(() => {
+    const allDogImages = screen.getAllByRole("image");
+    expect(allDogImages.length).toBeGreaterThan(1);
+  }, 3000);
 });

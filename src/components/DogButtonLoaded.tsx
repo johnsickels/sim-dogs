@@ -11,10 +11,10 @@ interface IProps {
 
 /**
  * Loaded Dog Button
- * 
+ *
  * Single dog button
  * @param props
- * @returns 
+ * @returns
  */
 function DogButtonLoaded({
   dog,
@@ -23,7 +23,9 @@ function DogButtonLoaded({
   handleClick,
 }: IProps) {
   const handleActiveDog = (event: MouseEvent<HTMLElement>) => {
-    const newActiveDog = event.currentTarget.innerText.toLowerCase();
+    // aria-label might be undefined..
+    const newActiveDog = event.currentTarget.getAttribute("aria-label")!;
+
     handleClick(event);
     setActiveDog(newActiveDog);
   };

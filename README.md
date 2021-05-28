@@ -47,10 +47,6 @@ $ yarn test
 - TypeScript
 - MaterialUI
 
-## Feedback / Contributing
-
-- Author - [John Sickels](https://github.com/johnsickels)
-
 ## Notes
 
 - Deciding on position, going to use Material-UI because that's what the client wants
@@ -78,4 +74,28 @@ $ yarn test
 - Refactors, comments, organizing
 - Learning about useQuery, refactor my useEffect in main dash for button loading/error/data
   - Should not ( cannot? ) use it in my button onClick api call for images
-    
+- Adding more tests
+  - jest is weird, react testing library is a little picky
+- If I had more time
+  - Better error handling!!
+    - If the api fails, the app hangs in loading mode
+    - Would prefer a user facing error statement
+  - CLick on dogs to expand image
+    - Some poor dogs have their heads cut off
+  - Lazy load more images
+    - Either on scroll or on click `See More`
+  - More custom hooks
+    - Parameterize my useQuery to work on the button click maybe, explore other hooks
+  - fp-ts
+    - Just got caught having too much fun in my comfort zone, but I was eyeing:
+    - ReaderTaskEither
+    - ReaderRemoteData
+    - RemoteData
+- Feedback
+  - Thanks for not giving me something boring
+  - I thought it was a bit ugly and bland at first, but then I read your designer comment and understood
+  - Awesome awesome, I love dogs
+
+## Feedback / Contributing
+
+- Author - [John Sickels](https://github.com/johnsickels)

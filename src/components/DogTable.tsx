@@ -7,18 +7,18 @@ import { Dispatcher, Status } from "../interfaces";
 interface IProps {
   dogs: string[];
   buttonsStatus: Status;
-  imagesStatus: string,
-  activeDog: string,
-  setActiveDog: Dispatcher<string>,
-  setImagesStatus: Dispatcher<Status>,
+  imagesStatus: string;
+  activeDog: string;
+  setActiveDog: Dispatcher<string>;
+  setImagesStatus: Dispatcher<Status>;
 }
 
 /**
  * Dog Table
- * 
+ *
  * Buttons and Images
- * @param props 
- * @returns 
+ * @param props
+ * @returns
  */
 function DogTable({
   dogs,
@@ -37,11 +37,10 @@ function DogTable({
     setImagesStatus("loading");
 
     // get dog
-    const breed = event.currentTarget.innerText.toLowerCase();
+    const breed = event.currentTarget.getAttribute("aria-label")!;
 
     // 8 random images by breed
     API.getImages(breed).then((results) => {
-
       // array of image src
       const images = results.data.message;
 
@@ -49,7 +48,6 @@ function DogTable({
       setImages(images);
     });
   };
-
 
   return (
     <>
